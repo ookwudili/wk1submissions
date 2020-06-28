@@ -1,0 +1,56 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Menu</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <mat-grid-list cols="2" rowHeight="200px">
+      <mat-grid-tile *ngFor="let dish of dishes">
+        <img height="200px" src={{dish.image}} alt={{dish.name}}>
+        <mat-grid-tile-footer>
+          <h1>{{dish.name | uppercase}}</h1>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+ <mat-grid-list cols="2" rowHeight="2:4">
+  <mat-grid-tile>
+<div fxFlex *ngIf="selectedDish">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>{{selectedDish.name | uppercase}}</h3>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+      <mat-card-content>
+        {{selectedDish.description}}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</mat-grid-tile>
+<mat-grid-tile>
+<mat-list>
+ <mat-list-item><h3>{{dish.name | uppercase}}</h3></mat-list-item>
+ <mat-list-item>{{dish.description}}</mat-list-item>
+</mat-list>
+<mat-list>
+  <mat-list-item *ngFor="let menu of menus">
+    <h3 matLine> {{menu.rating}} </h3>
+    <p matLine> {{menu.comment}} | {{menu.rating}} </p>
+    <p matLine class="demo-2"> {{menu.author}} </p>
+  </mat-list-item>
+</mat-list>
+</mat-grid-tile>
+</mat-grid-list>
