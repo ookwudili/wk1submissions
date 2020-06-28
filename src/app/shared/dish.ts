@@ -1,6 +1,13 @@
+import { Comment } from './comment';
+
 export class Dish {
-rating: number;
-comment: string;
-author: string;
-date: string;
+id: string;
+name: string;
+images: string;
+category: string;
+featured: boolean;
+label: string;
+price: string;
+description: string;
+comments: Comment[];
 }
